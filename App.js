@@ -2,11 +2,13 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Index from "./src/components";
+import FixGlobal from "./src/utils/axios-bug-fix";
 const { Home, Average } = Index;
 
 const Stack = createStackNavigator();
 
 export default function App() {
+  FixGlobal();
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -15,7 +17,7 @@ export default function App() {
           component={Home}
           options={{ header: () => null }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Average"
           component={Average}
           options={{
@@ -26,7 +28,7 @@ export default function App() {
             },
             headerTintColor: 'white',
           }}
-        />
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
