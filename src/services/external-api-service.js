@@ -5,7 +5,7 @@ import RequestFactory from '../factories/request-factory';
 export default class ExternalApiService {
   constructor() {
     this.baseUrl = API_URL;
-    this.headers =  { 'Authorization': `Bearer ${API_TOKEN_DEV}`};
+    this.headers =  { 'Authorization': `Bearer ${API_TOKEN_PROD}`};
     this.axios = new RequestFactory({});
   }
 
@@ -21,7 +21,12 @@ export default class ExternalApiService {
   }
 
   getChampionships(id = null) {
-    const url = `/v1/campeonatos/${querystring.stringify({campeonato_id: id})}`;
+    const url = `/v1/campeonatos/${id}`;
+    return this.defaultGetRequest(url, {});
+  }
+
+  getChampionshipKeys(id, key = null) {
+    const url = `/v1/campeonatos/${id}/fases/${key ? key : ``}`;
     return this.defaultGetRequest(url, {});
   }
 };
