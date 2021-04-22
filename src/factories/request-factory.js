@@ -20,7 +20,6 @@ export default class RequestFactory {
   }
 
   get(url = null, config = { auth: {}, headers: {} }) {
-    console.log(config)
     return this.axios.get(url, config).then(result => result.data);
   }
 

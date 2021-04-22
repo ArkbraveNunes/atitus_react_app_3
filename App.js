@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Index from "./src/components";
 import FixGlobal from "./src/utils/axios-bug-fix";
-const { Home, Average } = Index;
+const { Keys, Championship, Phases } = Index;
 
 const Stack = createStackNavigator();
 
@@ -13,13 +13,13 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Home"
-          component={Home}
+          name="Championship"
+          component={Championship}
           options={{ header: () => null }}
         />
-        {/* <Stack.Screen
-          name="Average"
-          component={Average}
+        <Stack.Screen
+          name="Phases"
+          component={Phases}
           options={{
             title: "",
             headerTitleAlign: "left",
@@ -28,7 +28,19 @@ export default function App() {
             },
             headerTintColor: 'white',
           }}
-        /> */}
+        />
+        <Stack.Screen
+          name="Keys"
+          component={Keys}
+          options={{
+            title: "",
+            headerTitleAlign: "left",
+            headerStyle: {
+              backgroundColor: 'black',
+            },
+            headerTintColor: 'white',
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
