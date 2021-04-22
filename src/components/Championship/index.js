@@ -15,10 +15,10 @@ const apiService = new ApiService();
 
 const getChampionships = () => {
   return apiService.getChampionships(2)
-  .catch(() => setData({}))
+  .catch(() => {})
 }
 
-export default Home = ({ navigation }) => {
+export default Championship = ({ navigation }) => {
   const [data, setData] = useState({});
 
   useEffect(
@@ -26,14 +26,21 @@ export default Home = ({ navigation }) => {
       getChampionships().then(res => setData(res))
     }, []
   )
+
+  const changePage = (namePage, { idChampionship, logoChampionship }) => {
+    navigation.navigate(namePage, {
+      idChampionship,
+      logoChampionship
+    });
+  };
     return (
       <SafeAreaView style={screen.background}>
         <View style={screen.container}>
           <View style={button.container}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => changePage('Phases', { idChampionship: data.campeonato_id, logoChampionship: data.logo })}>
               <Image style={img.layout} source={{uri: data.logo}}/>
             </TouchableOpacity>
-            <Text style={title.text}>{data.nome}</Text>
+            <Text style={title.text}>{data.nome_popular}</Text>
           </View>
         </View>
       </SafeAreaView>

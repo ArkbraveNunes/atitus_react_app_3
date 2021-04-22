@@ -1,4 +1,5 @@
-import Home from './Home'
-import Average from './Average'
+import Championship from './Championship'
+import Phases from './Phases'
+import Keys from './Keys'
 
-export default { Home, Average };
+export default { Championship, Keys, Phases };
