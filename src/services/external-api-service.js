@@ -5,7 +5,7 @@ import RequestFactory from '../factories/request-factory';
 export default class ExternalApiService {
   constructor() {
     this.baseUrl = API_URL;
-    this.headers =  { 'Authorization': `Bearer ${API_TOKEN_DEV}`};
+    this.headers =  { 'Authorization': `Bearer ${API_TOKEN_PROD}`};
     this.axios = new RequestFactory({});
   }
 
