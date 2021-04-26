@@ -12,7 +12,7 @@ import Style from "./style"
 import ApiService from "../../services/external-api-service";
 const apiService = new ApiService();
 
-import KeysUtils from "../../utils/championship-utils";
+import KeysUtils from "../../utils/keys-utils";
 
 
 const getChampionshipKeys = (idChampionship, keyChampionship) => 
