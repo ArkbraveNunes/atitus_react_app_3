@@ -13,8 +13,11 @@ import Style from "./style"
 import ApiService from "../../services/external-api-service";
 const apiService = new ApiService();
 
+import PhasesUtils from "../../utils/phases-utils";
+
 const getChampionshipKeys = (idChampionship) => 
   apiService.getChampionshipKeys(idChampionship)
+    .then(res => PhasesUtils.filterPhases(res))
     .catch(() => {});
 
 export default Phases = ({ route: { params: { idChampionship, logoChampionship } }, navigation}) => {
@@ -46,8 +49,8 @@ export default Phases = ({ route: { params: { idChampionship, logoChampionship }
               data={phases}
               keyExtractor={(id, index) => index.toString()}
               renderItem={({ item }) => (
-                  <TouchableOpacity style={button.container} onPress={() => changePage('Keys', { idChampionship, idPhase: item.fase_id})}>
-                      <Text style={title.text}>{item.nome}</Text>
+                  <TouchableOpacity style={button.container} onPress={() => changePage('Keys', { idChampionship, idPhase: item.idPhase})}>
+                      <Text style={title.text}>{item.namePhase}</Text>
                   </TouchableOpacity>
               )}/>
           </View>

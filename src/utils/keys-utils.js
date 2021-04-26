@@ -1,4 +1,4 @@
-export default class ChampionshipKeysUtils {  
+export default class KeysUtils {  
     static extractKeys(data) {
       const { chaves: keys} = data;
       return keys;
@@ -18,7 +18,6 @@ export default class ChampionshipKeysUtils {
           },
         } = item;
         const scoreboard = `${nameM} ${goalsM}x${goalsV} ${nameV}`
-  
         return { id, keyName, date, scoreboard, initialsM, initialsV  }
       }).sort((x, y) => x.id - y.id)
     }
