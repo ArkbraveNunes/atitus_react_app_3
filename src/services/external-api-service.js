@@ -4,8 +4,8 @@ import RequestFactory from '../factories/request-factory';
 
 export default class ExternalApiService {
   constructor() {
-    this.baseUrl = API_URL;
-    this.headers =  { 'Authorization': `Bearer ${API_TOKEN_DEV}`};
+    this.baseUrl = 'https://api.api-futebol.com.br';
+    this.headers =  { 'Authorization': `Bearer live_ec011b9e3f4a03d66e449bf85c0e8a`};
     this.axios = new RequestFactory({});
   }
 
